@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block intag_body %}
+<div class="row-fluid">
+  <h1>{% trans "PDF Archive" %}</h1>
+</div>
+<div class="row-fluid">
+<ul class="thumbnails">
+  {% for edition in editions %}
+    <li class="span4">
+      <div class="thumbnail">
+      <a href="{{edition.pdf.url}}">
+        <img src="{{ edition.thumbnail.url }}" alt="">
+      </a>
+      <h3>Issue {{ edition.issue }} </h3>
+      <p> {{ edition.cover_story }} </p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock %}
