@@ -5,18 +5,17 @@
   <h1>{% trans "PDF Archive" %}</h1>
 </div>
 <div class="row-fluid">
-<ul class="thumbnails">
   {% for edition in editions %}
-    <li class="span4">
-      <div class="thumbnail">
-      <a href="{{edition.pdf.url}}">
-        <img src="{{ edition.thumbnail.url }}" alt="">
+    <div class="media">
+      <a href="{{edition.pdf.url}}" class="pull-left">
+        <img src="{{ edition.thumbnail.url }}" alt="" class="thumbnail pdf">
       </a>
-      <h3>Issue {{ edition.issue }} </h3>
+      <div class="media-body">
+      <h3 class="media-heading">Issue {{ edition.issue }} </h3>
+      <p>{{ edition.pub_date|date:"M Y" }}</p>
       <p> {{ edition.cover_story }} </p>
       </div>
-    </li>
+    </div>
   {% endfor %}
-</ul>
 </div>
 {% endblock %}
