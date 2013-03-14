@@ -4,7 +4,7 @@ from django.template import RequestContext
 
 def index(request):
     return render_to_response('pdf_index.html', 
-        {'editions': PDF.objects.all()},
+        {'editions': PDF.objects.order_by('issue')},
         context_instance=RequestContext(request),
     )
 
